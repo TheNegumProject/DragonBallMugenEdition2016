@@ -1,0 +1,46 @@
+; Definition file for player
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name ="Raditz"
+displayname ="Raditz"
+versiondate =30/12/2015
+mugenversion =1.0
+author ="Misterr07"
+pal.defaults =1,2,3,4,5,6,7,8,9,10
+localcoord = 320,240
+
+
+; Files for the player
+[Files]
+cmd     =Raditz.cmd
+cns     =states/Raditz.cns
+st      =states/Poses.cns
+stcommon =states/DBZcommon.cns
+sprite  =Raditz.sff
+anim    =Raditz.air
+sound=sound/sound.snd
+pal1=palettes/DBZ1.act
+pal2=palettes/DBZ2.act
+pal3=palettes/DBZ3.act
+pal4=palettes/DBZ4.act
+pal5=palettes/DBZ5.act
+pal6=palettes/DBZ6.act
+pal7=palettes/DBZ7.act
+pal8=palettes/DBZ8.act
+pal9=palettes/DBZ9.act
+pal10=palettes/DBZ10.act
+st1=states/Basics.cns
+st2=states/DBZSystem.st
+st3=states/Special.st
+st4=states/Supers.st
+st5=states/Hyper.st
+st6=states/Helpers.st
+st7=states/Score.st
+st8=states/Z-Assist.st
+st9=states/Negatives.cns
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=

@@ -1,0 +1,27 @@
+Name : Super Saiyan God Super Saiyan Goku
+Series : Dragon Ball Super / Dragon Ball Resurrection Of F'
+Sprites : Dragon Ball Extreme Botuden
+Sprites : http://www.spriters-resource.com/3ds/dragonballzextremebutden/
+Ripper : Ploaj
+
+This SSGSS Goku is aimed to be semi accurate to his EB gameplay. He can not fly or go to the 2nd plane of fighting.
+
+X : Punch
+Y : Kick
+Z : Ki Blast
+
+Almost all moves link into the auto combo (X and Y) using different variations leads to different combos.
+
+XX
+XXX
+XXXX
+
+XY
+XXY
+XXXY
+XXYXY
+
+after certain combos (anything that knocks your opponent away) Pressing Z will follow up with a special.
+
+Down, Forward, Z will do your special on the ground or air, and will cost 2 bars.
+Doing a combo first then a launcher then pressing Z will do the same super but at the cost of 1 bar.

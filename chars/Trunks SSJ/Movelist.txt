@@ -1,0 +1,54 @@
+
+=======================| MOVESET |==============================
+
+BASICS:
+
+Combo 1 - A,A,A,A
+
+Combo 2 - B,B,B,B
+
+Combo 3 - C,C,C,C
+
+
+Crouching Combo 1 - A,A,B
+
+Crouching Combo 2 - B,B
+
+Crouching Combo 3 - C,C
+
+
+Air Combo - A,A / B,B
+
+
+X - Support Character 1
+
+D, X - Support Character 2
+
+Y - Zanzoken
+
+Z - Ki Blast
+
+A + B - Power Chargue
+
+
+SPECIALS:
+
+D,DF,F, a - Buster Cannon
+
+D,DB,B, a - Burning Storm
+
+D,DF,F, b - Rapid Sword Stream
+
+D,DB,B, b - Explosive Wave
+
+D,DF,F, c - Final Sword
+
+D,DB,B, c - Masenko
+
+SUPERS:
+
+D,B,F, a - Burning Attack
+
+D,B,F, b - Change The Future
+
+D,B,F, c - Shining Sword Attack

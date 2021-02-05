@@ -1,0 +1,30 @@
+                              Android 18
+                             by  G-knux19
+
+
+============================== MOVELIST ====================================
+
+
+Head Ram: F, D, DF + Punch [AIR OK]
+Flying Elbow: F, D, DF + Kick : [HOLD BACK FOR 15 SECONDS]
+Ki Blast: D, DF, F + Punch [AIR OK]
+Feild on: D, DB, B + Punch [AIR OK]
+Teleport: F, D, DF + Weak Kick
+Android 17 ASSIST: F, DF, D, DB, B + Weak Kick
+Android 16 ASSIST: F, DF, D, DB, B + Meduim Kick
+
+THROW ATTACK:
+Command grab: D, DB, B + Kick [AIR OK]
+
+HYPER COMBOS:
+Power Blitz: D, DF, F 2 Punches
+Photon Strike: D, DF, F 2 Punches [AIR ONLY]
+Energy Blitz: D, DF, F 2 Kickes [AIR OK]
+Destructo Disk: F, D ,DF  2 Kickes [LEVEL 3 HYPER COMBO]
+
+======[SYSTEM MOVES]:
+
+Super Jump: D, U [Only "U" after you hit a launcher]
+Dash/Hop Backward: FF/BB
+Advancing Guard: 2 PUNCHES in Guard
+COUNTER-ATTACK: B, DB, D + Punch or Kick (when in defense (Power Cost = 1000))

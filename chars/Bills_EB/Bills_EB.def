@@ -1,0 +1,32 @@
+; ADD004 BASIC PIEs ReBuilded DEF (21-10-2016)
+;==============================================
+; This file is Made by PIE.
+; there is a backup of this file in the same folder, named "<samename>.a4bk".
+; to Restore, use assist tool, or delete this file, then remove ".a4bk" from the neme of backup.
+;==============================================
+
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************     http://virtualltek.mgbr.net     *******************;
+;***************************************************************************;
+[Info]
+name ="Extreme Bills God of Destruction"
+displayname ="Bills"
+versiondate =31/08/2015
+mugenversion =1.0
+author ="Nightmare"
+pal.defaults =1,2,3,4,5,6,7,8,9
+[Files]
+sprite =Bills.sff
+anim =Bills.air
+sound =Bills.snd
+cmd =Bills.cmd
+cns=add004basic.reb1
+st=add004basic.reb1
+stcommon=common1.cns
+pal1=1.act
+pal2=2.act
+pal3=3.act
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

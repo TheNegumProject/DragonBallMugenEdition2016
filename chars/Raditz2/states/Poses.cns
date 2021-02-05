@@ -1,0 +1,469 @@
+;*******************************************************************************
+;***************************************************************************
+;********************   WinPose - Intro - Lose  ****************************
+;***************************************************************************
+;*******************************************************************************
+;---------------------------------------------------------------------------
+; Lose by Time Over  Choice
+[Statedef 170]
+type = S
+ctrl = 0
+anim = 170
+velset = 0,0
+
+[State 170, VarRandom]
+type = VarRandom
+trigger1 = Time = 0
+v = 3
+range = 1,50
+
+[State 170, 1]
+type = ChangeState
+trigger1 = var(3) = [1,25]
+value = 171
+
+[State 170, 1]
+type = ChangeState
+trigger1 = var(3) = [26,50]
+value = 172
+
+;---------------------------------------------------------------------------
+; Lose by Time Over 1
+[Statedef 171]
+type = S
+ctrl = 0
+velset = 0,0
+
+[State 171, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = S171,0
+channel = 0
+
+[State 171, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 171, time]
+type = AssertSpecial
+trigger1 = time < 240
+flag = RoundNotOver
+
+;---------------------------------------------------------------------------
+; Lose by Time Over 2
+[Statedef 172]
+type = S
+ctrl = 0
+velset = 0,0
+
+[State 172, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = S172,0
+channel = 0
+
+[State 172, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 172, time]
+type = AssertSpecial
+trigger1 = time < 200
+flag = RoundNotOver
+
+
+;---------------------------------------------------------------------------
+; Win state decider
+; CNS difficulty: basic
+[Statedef 180]
+type = S
+
+
+[State -3, VarSet]; Life
+type = VarSet
+trigger1 = Time = 0
+v = 54
+value = var(54) + var(50)
+persistent = 0
+
+[State -3, VarSet]; Time
+type = VarSet
+trigger1 = Time = 0
+v = 55
+value = var(55) + var(53)
+persistent = 0
+
+[State -3, VarSet]; Attack
+type = VarSet
+trigger1 = Time = 0
+v = 56
+value = var(56) + var(52)
+persistent = 0
+
+
+[state 180, VictoryQuote]
+type = VictoryQuote
+triggerall = Time = 0
+trigger1 = P2name ="Goku" || P2name ="SSJGoku"
+trigger2 = P2name ="GokuSSJ" || P2name ="GokuSSJ2"
+trigger3 = P2name ="Goku SSJ" || P2name ="Goku SSJ2"
+trigger4 = P2name ="Goku Z2" || P2name ="SSJ Goku Z2"
+value = 10 +random%2
+
+[state 180, VictoryQuote]
+type = VictoryQuote
+triggerall = Time = 0
+trigger1 = P2name ="Gohan" || P2name ="Gohan SSJ"
+trigger2 = P2name ="GohanSSJ" || P2name ="GohanSSJ2"
+trigger3 = P2name ="Gohan Z2" || P2name ="Gohan SSJ2"
+value = 12
+
+[state 180, VictoryQuote]
+type = VictoryQuote
+triggerall = Time = 0
+trigger1 = P2name !="Bardock"
+value = 13
+
+[state 180, VictoryQuote]
+type = VictoryQuote
+triggerall = Time = 0
+trigger1 = P2name !="Goku" || P2name !="SSJGoku"
+trigger2 = P2name !="GokuSSJ" || P2name !="GokuSSJ2"
+trigger3 = P2name !="Goku SSJ" || P2name !="Goku SSJ2"
+trigger4 = P2name !="Goku Z2" || P2name !="SSJ Goku Z2"
+trigger5 = P2name !="Gohan" || P2name !="Gohan SSJ"
+trigger6 = P2name !="GohanSSJ" || P2name !="GohanSSJ2"
+trigger7 = P2name !="Gohan Z2" || P2name !="Gohan SSJ2"
+trigger8 = P2name !="Bardock"
+value = 1+random%9
+
+
+[State 180, VarRandom]
+type = VarRandom
+trigger1 = Time = 0
+v = 2
+range = 1,99
+
+[State 180, 1]
+type = ChangeState
+trigger1 = var(2) = [67,99]
+value = 181
+
+[State 180, 1]
+type = ChangeState
+trigger1 = var(2) = [34,66]
+value = 182
+
+[State 180, 1]
+type = ChangeState
+trigger1 = var(2) = [1,33]
+value = 183
+
+;---------------------------------------------------------------------------
+; Win pose 1
+; CNS difficulty: basic
+[Statedef 181]
+type = S
+ctrl = 0
+anim = 181
+velset = 0,0
+
+[State 181, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = S181,0
+channel = 0
+
+[State 181, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 181, time]
+type = AssertSpecial
+trigger1 = time < 160
+flag = RoundNotOver
+
+[State 181, ChangeState]
+type = ChangeState
+triggerall = !Ailevel
+triggerall = Matchover
+trigger1 = time = 159
+value = 188
+ctrl = 0
+
+;---------------------------------------------------------------------------
+; Win pose 2
+; CNS difficulty: basic
+[Statedef 182]
+type = S
+ctrl = 0
+anim = 182
+velset = 0,0
+
+[State 182, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = S182,0
+channel = 0
+
+[State 182, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 182, time]
+type = AssertSpecial
+trigger1 = time < 200
+flag = RoundNotOver
+
+[State 182, ChangeState]
+type = ChangeState
+triggerall = !Ailevel
+triggerall = Matchover
+trigger1 = time = 199
+value = 188
+ctrl = 0
+
+;---------------------------------------------------------------------------
+; Win pose 3
+; CNS difficulty: basic
+[Statedef 183]
+type = S
+ctrl = 0
+anim = 183
+velset = 0,0
+
+[State 183, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = S183,0
+channel = 0
+
+[State 183, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 183, time]
+type = AssertSpecial
+trigger1 = time < 120
+flag = RoundNotOver
+
+[State 183, ChangeState]
+type = ChangeState
+triggerall = !Ailevel
+triggerall = Matchover
+trigger1 = time = 119
+value = 188
+ctrl = 0
+
+;---------------------------------------------------------------------------
+; Win Result
+[Statedef 188]
+type = S
+ctrl = 0
+anim = 188
+velset = 0,0
+
+[State 188, Helper]
+type = Helper
+triggerall = NumHelper(19000)=0
+trigger1 = Time = 0
+name = "score"
+ID = 19000
+stateno = 19000
+pos = 0,0
+postype = back
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+size.xscale = .5
+size.yscale = .5
+
+[State 188, time]
+type = AssertSpecial
+trigger1 = time < 659
+flag = RoundNotOver
+
+;---------------------------------------------------------------------------
+; Introduction Choice
+[Statedef 190]
+type = S
+ctrl = 0
+velset = 0,0
+
+[State 190, VarRandom]
+type = VarRandom
+trigger1 = Time = 0
+v = 1
+range = 1,40
+
+[State 190, ChangeState]
+type = ChangeState
+trigger1 = Teamside = 1
+trigger1 = var(1) = [1,20]
+value = 191
+ctrl = 0
+
+[State 190, ChangeState]
+type = ChangeState
+trigger1 = Teamside = 1
+trigger1 = var(1) = [21,40]
+value = 192
+ctrl = 0
+
+
+[State 190, ChangeState]
+type = ChangeState
+trigger1 = Teamside = 2
+trigger1 = var(1) = [1,20]
+value = 193
+ctrl = 0
+
+[State 190, ChangeState]
+type = ChangeState
+trigger1 = Teamside = 2
+trigger1 = var(1) = [21,40]
+value = 194
+ctrl = 0
+
+;---------------------------
+; Introduction 1
+[Statedef 191]
+type = S
+ctrl = 0
+anim = 191
+velset = 0,0
+
+[State 191, 2] ;Assert this until you want "round 1, fight" to begin
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 191, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = S191,0
+channel = 4
+
+[State 191, 4] ;Change to stand state
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0;196 - 196*(AiLevel!=0)
+
+;---------------------------
+; Introduction 2
+[Statedef 192]
+type = S
+ctrl = 0
+anim = 192
+velset = 0,0
+
+[State 192, 2] ;Assert this until you want "round 1, fight" to begin
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 192, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 1,25
+value = S192,0
+channel = 4
+
+[State 192, 4] ;Change to stand state
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0;196 - 196*(AiLevel!=0)
+
+;---------------------------
+; Introduction 3
+[Statedef 193]
+type = S
+ctrl = 0
+anim = 193
+velset = 0,0
+
+[State 193, 2] ;Assert this until you want "round 1, fight" to begin
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 193, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = S193,1
+channel = 5
+
+[State 193, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 30
+value = S193,0
+channel = 4
+
+[State 193, 4] ;Change to stand state
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0;196 - 196*(AiLevel!=0)
+
+;---------------------------
+; Introduction 4
+[Statedef 194]
+type = S
+ctrl = 0
+anim = 194
+velset = 0,0
+
+[State 194, 2] ;Assert this until you want "round 1, fight" to begin
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 194, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = S193,1
+channel = 5
+
+[State 194, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 30
+value = S194,0
+channel = 4
+
+[State 194, 4] ;Change to stand state
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0;196 - 196*(AiLevel!=0)
+
+;---------------------------------------------------------------------------
+; Taunt
+[Statedef 195]
+type = S
+ctrl = 0
+anim = 195
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+[State 195, PlaySnd]
+type = PlaySnd
+trigger1 = Animelem = 2,4
+value = S195,random%3
+channel = 0
+
+[State 195, 2]
+type = ChangeState
+trigger1 = Animtime = 0
+value = 0
+ctrl = 1

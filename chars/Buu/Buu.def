@@ -1,0 +1,39 @@
+; ADD004 BASIC PIEs ReBuilded DEF (21-10-2016)
+;==============================================
+; This file is Made by PIE.
+; there is a backup of this file in the same folder, named "<samename>.a4bk".
+; to Restore, use assist tool, or delete this file, then remove ".a4bk" from the neme of backup.
+;==============================================
+
+;*********************************************************
+[Info]
+name = "Majin Buu"        
+displayname = "Buu"
+versiondate = 07,06,2015    
+mugenversion = 1.0         
+author = "Yzan"        
+pal.defaults = 4,5,6,1,2,3,12,11,10,7,8,9
+localcoord = 320,240        
+[Files]
+cmd      = Command.cds      
+cns=add004basic.reb1
+st=add004basic.reb1
+stcommon=common1.cns
+sprite   = Buu.sff              
+anim     = Animation.air      
+sound    = Buu.snd             
+    
+[Palette Keymap]
+x = 1
+y = 2
+z = 3
+a = 4
+b = 5
+c = 6
+x2 = 7
+y2 = 8
+z2 = 9
+a2 = 10
+b2 = 11
+c2 = 12
+;*********************************************************

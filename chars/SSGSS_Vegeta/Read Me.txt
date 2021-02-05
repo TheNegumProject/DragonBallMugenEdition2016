@@ -1,0 +1,36 @@
+Name : Super Saiyan God Super Saiyan Vegeta
+Series : Dragon Ball Super / Dragon Ball Resurrection Of F'
+Sprites : Dragon Ball Extreme Botuden
+Sprites : http://www.spriters-resource.com/3ds/dragonballzextremebutden/
+Ripper : Ploaj
+
+This SSGSS Vegeta is aimed to be semi accurate to his EB gameplay. He can not fly or go to the 2nd plane of fighting.
+
+X : Punch
+Y : Kick
+Z : Special
+
+Almost all moves link into the auto combo (X and Y) using different variations leads to different combos.
+
+X
+XX
+XXX
+XXXX
+
+Y
+YY
+YYY
+
+X
+XX
+XXY
+XXYY
+XXYYY
+
+After certain combos (anything that knocks your opponent away) Pressing Z will follow up with a special.
+
+Down, Forward, Z - Final Flash (Ground, Big Bang Ray (Air)
+Back, Forward, Z - Big Bang Attack (Ground)
+
+Doing the specials alone will cost 2000 Power (BBA costs 500 POWER)
+Doing a combo first then a launcher then pressing Z will do the same super but at the cost of 1 bar.

@@ -1,0 +1,56 @@
+; Definition file for player
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name = "Android 18"       ;Name of character
+displayname = "18";Name of character to display
+versiondate = 07,2,2015  ;Version date of character
+mugenversion = 1.0        ;Version of M.U.G.E.N character works on
+author = "G.knux19"          ;Character author name
+pal.defaults = 1,2,3,4     
+localcoord = 320,240        
+
+; Files for the player
+[Files]
+cmd     = 18.cmd   ;Command set
+cns     = 18.cns   ;Constants
+stcommon = common1.cns ;Common states
+st      = 18.cns   ;States
+st1     =common.cns
+st2     =VS_engine.cns
+st3     =VS_-2 & -3.cns
+st4     =mvc2tag.st
+sprite  = 18.sff   ;Sprite
+anim    = 18.air   ;Animation
+sound  = 18.snd   ;Sound
+pal1 = Palettes/1.act
+pal2 = Palettes/2.act
+pal3 = Palettes/3.act
+pal4 = Palettes/4.act
+pal5 = Palettes/1.act
+pal6 = Palettes/2.act
+pal7 = Palettes/3.act
+pal8 = Palettes/4.act
+pal10 = Palettes/1.act
+pal11 = Palettes/2.act
+pal12 = Palettes/3.act
+
+; Maps character selection buttons to palette numbers.
+[Palette Keymap]
+x = 1 ;Press button X to select palette 1, etc.
+y = 2
+z = 3
+a = 4
+b = 5
+c = 6
+x2 = 7 ;Hold Start and press button X for palette 7, etc.
+y2 = 8
+z2 = 9
+a2 = 10
+b2 = 11
+c2 = 12
+
+[Arcade]
+intro.storyboard=
+ending.storyboard= staff.def

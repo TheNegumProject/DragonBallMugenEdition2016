@@ -1,0 +1,1098 @@
+;*******************************************************************************
+;***************************************************************************
+;*************************   States -2 -3  *********************************
+;***************************************************************************
+;*******************************************************************************
+
+;---------------------------------------------------------------------------
+; States that are always executed (use statedef -2)
+;---------------------------------------------------------------------------
+[Statedef -2]
+
+;===========================================================================
+;---------------------------------------------------------------------------
+;--------------------------  AI By Seravy  ---------------------------------
+;---------------------------------------------------------------------------
+
+[State -2, AI ON] ; Turn the AI on when
+Type = VarSet
+TriggerAll = Var(36) < 1; it is not on yet and
+TriggerAll = RoundState=2 ; the fight has started and is not over yet and
+Trigger1 = AILevel>0 ; the computer is playing the character
+v = 36
+value= 1 ; value of 1 will mean the AI is on
+Ignorehitpause=1
+
+[State -2, AI OFF] ; Turn the AI off when
+Type=VarSet
+Trigger1=var(36)>0 ; it is on and
+Trigger1=RoundState!=2 ; the round is not started yet or is already over
+Trigger2=!IsHelper ; OR if we are a player, but
+Trigger2=AILevel=0 ; the computer is not in control
+v=36
+value=0 ; value of 0 will mean the AI is off.
+Ignorehitpause=1
+
+[State -2, AILevel]
+Type=VarSet
+Trigger1=1
+var(35)=(AILevel=1)*3+(AILevel=2)*7+(AILevel=3)*16+(AILevel=4)*30+(AILevel=5)*58+(AILevel=6)*90+ (AILevel=7)*150+(AILevel=8)*300
+
+
+; Try to estimate Actual number of projectiles+helpers of opponent
+
+[State -2, Check] ; Check number of enemy helpers at start of the round on 2nd tick
+Type=Varset
+Trigger1=Roundstate=2
+Trigger1=var(37)=-1
+var(37)=enemynear,numhelper
+persistent=0
+
+[State -2, Reset]
+Type=Varset
+Trigger1=Roundstate=2
+var(37)=-1
+persistent=0
+
+; If enemy has less helpers than the stored amount, update the stored amount
+[State -2, minus]
+Type=Varset
+Trigger1=Roundstate=2
+Trigger1=enemynear,numhelper<var(37)
+var(37)=enemynear,numhelper
+
+; Actual number of helpers equals to number of helpers minus the stored number (lowest amount of helpers during the round)
+[State -2, Number]
+Type=Varset
+triggerall = P2Movetype = A
+Trigger1=var(37)>=0
+var(38)=enemynear,numhelper-var(37)+enemynear,numproj
+
+
+;------------------------------------------------------------------
+;******************************************
+;*****   AI Sayan Fury   *****
+;******************************************
+[State -2, VarSet]
+type = VarSet
+triggerall = RoundState = 2
+trigger1 = power >=3000
+trigger1 = var(58)
+v = 22
+value = 1
+ignorehitpause = 1
+
+[State -2, VarSet]; Reset
+type = VarSet
+triggerall = RoundState = 2
+trigger1 = power < 3000
+trigger2 = var(58) = 0
+v = 22
+value = 0
+ignorehitpause = 1
+
+;------------------------------------------------------------------
+;******************************************
+;*****   Life for Score Result  *****
+;******************************************
+; Life By Round
+[State -2, VarSet]
+type = VarSet
+trigger1 = RoundState = 2
+v = 50
+value = Life
+ignorehitpause = 1
+
+;------------------------------------------------------------------
+;******************************************
+;*****   Time for Score Result  *****
+;******************************************
+; Time By Round
+[State -2, VarSet]
+type = VarSet
+trigger1 = RoundState = 2
+v = 53
+value = var(53) + 1
+ignorehitpause = 1
+
+;------------------------------------------------------------------
+;******************************************
+;************   Sounds   **************
+;******************************************
+
+[State -2, Voice Pos]
+type = sndpan
+trigger1 = 1
+channel = 0
+pan = 0
+ignorehitpause = 1
+
+;-----------------------------------------------
+[State -2, StopSnd] ; Power Charge sound stop
+type = StopSnd
+trigger1 = StateNo != [900,902]
+channel = 1
+ignorehitpause = 1
+
+;-----------------------------------------------
+[State -2, StopSnd] ; Intro sound stop
+type = StopSnd
+trigger1 = StateNo != [191,194]
+channel = 4
+ignorehitpause = 1
+
+;-----------------------------------------------
+[State -2, StopSnd] ; Intro sound stop
+type = StopSnd
+trigger1 = StateNo != [191,194]
+channel = 5
+ignorehitpause = 1
+
+;------------------------------------------------------------------
+;******************************************
+;*****   Throw limitations By POTS  *****
+;******************************************
+
+[State -2, Throws Allowed]; Resets condition every tick to check again
+type=varset
+trigger1= 1
+var(4)= 0
+
+[State -2, Throws Disallowed]
+type=varset
+trigger1= (enemynear,stateno=[150,155])
+trigger2= (enemynear,movetype=H && enemynear,statetype!=A)
+trigger3= (enemynear,stateno=[5020,5040]) && !(enemynear,hitfall)
+trigger4= ((enemynear,stateno=0) || (enemynear,stateno=52)) && (enemynear,prevstateno=[5000,5040]) && ((enemynear,time<=0) || !(enemynear,ctrl))
+trigger5= (enemynear,stateno=0) && (enemynear,prevstateno=52) && ((enemynear,time<=0) || !(enemynear,ctrl))
+trigger6= (enemynear,stateno=40) && (enemynear,time>=1 || enemynear,prevstateno=0 || enemynear,prevstateno=52)
+var(4)= 1
+
+
+;------------------------------------------------------------------
+;******************************************
+;********   Z-Assist Choice   ********
+;******************************************
+
+[State -2, Helper]
+type = Helper
+Triggerall = !AiLevel
+triggerall = NumHelper(6000)=0
+triggerall = RoundNo = 1
+trigger1 = RoundState = 0
+name = "Choice"
+ID = 6000
+stateno = 6000
+pos = 0 - 10*(teamside=2),var(19)
+postype = p1
+facing = facing
+keyctrl = 0
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+size.xscale = .5
+size.yscale = .5
+
+
+;------------------------------------------------------------------
+;******************************************
+;******    Hitvoice Random Choice    ******
+;******************************************
+
+[State -2, 1]
+type = VarSet
+trigger1 = var(10)=0 ;Use any free variable
+trigger1 = stateno != [120,155] ;No damage voice on block
+trigger1 = movetype=H
+trigger1 = GetHitVar(damage)!=0 ;Only on the moment you get hit
+v = 10
+value = 20 ;Timeout before damage voice can be played again
+ignorehitpause=1
+
+[State -2, 1]
+type = PlaySnd
+trigger1 = var(10)=15 ;It will be played 5 ticks after you get hit (20-15)
+trigger1 = alive ;No damage voice after KO
+value = S(5000 + ifelse(GetHitVar(animtype)=0,0,ifelse(GetHitVar(animtype)=1,10,20))),random%3
+channel = 2
+lowpriority = 1
+ignorehitpause=1
+
+[State -2, 3]
+type = VarAdd
+trigger1 = var(10)>0
+v = 10
+value = -1
+ignorehitpause=1
+
+;------------------------------------------------------------------
+;******************************************
+;******     Remove Explods    ******
+;******************************************
+
+[State -2, RemoveExplod]
+type = RemoveExplod
+trigger1 = Stateno != 901
+id = 9030
+
+[State -2, RemoveExplod]
+type = RemoveExplod
+trigger1 = Stateno != 901
+id = 9031
+
+
+;------------------------------------------------------------------
+;*************************************
+;*******   Damage Dampener   *********
+;*************************************
+
+[State -2, Based on Power]
+type=varset
+trigger1= 1
+fvar(18)= 1 + 0.065*(power/const(data.power))
+ignorehitpause=1
+
+[State -2, Based on hits]
+type=varset
+trigger1= numenemy
+fvar(19)= 0.85**(enemynear,GetHitVar(hitcount))
+ignorehitpause=1
+
+[State -2, Resume]
+type=varset
+trigger1= 1
+fvar(20)= fvar(19)*fvar(18)
+ignorehitpause=1
+
+[State -2, Limit1]
+type=varset
+trigger1 = fvar(20) <0.25
+fvar(20) =0.25
+ignorehitpause=1
+
+[State -2, Limit2]
+type=varset
+trigger1 = fvar(20) > 1
+fvar(20) = 1
+ignorehitpause=1
+
+[State -2, Reset var when the opponent recovers]
+type=varset
+trigger1= numenemy
+trigger1= (enemynear,movetype!=H)
+trigger2= !numenemy
+fvar(20)=1
+
+[State -2, Dampener itself]
+type=attackmulset
+trigger1= 1
+value=fvar(20)
+ignorehitpause=1
+
+
+;------------------------------------------------------------------
+;*************************************
+;*******  Z-Bar  *********
+;*************************************
+;--------------------------------------------------------------------
+; solo mode (or simul with no other DBZ misterr07 chars !)
+
+[State -2, FuryBar_BG]; left
+type = Explod
+triggerall = !NumExplod(20000)
+triggerall = RoundState = 2
+triggerall = teamside = 1
+trigger1 = !NumPartner
+trigger2 = NumPartner
+trigger2 = Partner, AuthorName != "misterr07"
+ignorehitpause = 1
+anim = 20000
+ID = 20000
+postype = left
+pos = 4,210
+bindtime = -1
+supermovetime = 9999
+pausemovetime = 9999
+ownpal = 1
+scale = .5,.5
+sprpriority = 2
+
+[State -2, FuryBar_BG];right
+type = Explod
+triggerall = !NumExplod(20001)
+triggerall = RoundState = 2
+triggerall = teamside = 2
+trigger1 = !NumPartner
+trigger2 = NumPartner
+trigger2 = Partner, AuthorName != "misterr07"
+ignorehitpause = 1
+anim = 20001
+ID = 20001
+postype = left
+pos = 216,210
+bindtime = -1
+supermovetime = 9999
+pausemovetime = 9999
+ownpal = 1
+scale = .5,.5
+sprpriority = 2
+
+;--------------------------------------------------------------------
+; simul mode withother DBZ misterr07 chars
+
+[State -2, FuryBar_BG]; left
+type = Explod
+triggerall = !NumExplod(20000)
+triggerall = RoundState = 2
+triggerall = teamside = 1
+trigger1 = !NumPartner
+trigger2 = NumPartner
+trigger2 = Partner, AuthorName = "misterr07"
+ignorehitpause = 1
+anim = 20000
+ID = 20000
+postype = left
+pos = 4, 210 - 30*(ID > Partner, ID)
+bindtime = -1
+supermovetime = 9999
+pausemovetime = 9999
+ownpal = 1
+scale = .5,.5
+sprpriority = 2
+
+[State -2, FuryBar_BG];right
+type = Explod
+triggerall = !NumExplod(20001)
+triggerall = RoundState = 2
+triggerall = teamside = 2
+trigger1 = !NumPartner
+trigger2 = NumPartner
+trigger2 = Partner, AuthorName = "misterr07"
+ignorehitpause = 1
+anim = 20001
+ID = 20001
+postype = left
+pos = 216, 210 - 30*(ID > Partner, ID)
+bindtime = -1
+supermovetime = 9999
+pausemovetime = 9999
+ownpal = 1
+scale = .5,.5
+sprpriority = 2
+
+;---------------------------------------------
+; -----------   Fury :  ----------------------
+;--------------------------------------------------------------------
+; solo mode (or simul with no other DBZ misterr07 chars !)
+
+[State -2, Fury]; left
+type = Explod
+triggerall = !NumExplod(20010)
+triggerall = RoundState = 2
+triggerall = teamside = 1
+trigger1 = !NumPartner
+trigger2 = NumPartner
+trigger2 = Partner, AuthorName != "misterr07"
+ignorehitpause = 1
+anim = 20010
+ID = 20010
+postype = left
+pos = 34,223
+bindtime = -1
+supermovetime = 9999
+pausemovetime = 9999
+ownpal = 1
+removetime = -1
+scale = .5,.5
+sprpriority = 3
+
+[State -2, Fury];right
+type = Explod
+triggerall = !NumExplod(20010)
+triggerall = RoundState = 2
+triggerall = teamside = 2
+trigger1 = !NumPartner
+trigger2 = NumPartner
+trigger2 = Partner, AuthorName != "misterr07"
+ignorehitpause = 1
+anim = 20011
+ID = 20010
+postype = left
+pos = 288,223
+bindtime = -1
+supermovetime = 9999
+pausemovetime = 9999
+ownpal = 1
+removetime = -1
+scale = .5,.5
+sprpriority = 3
+
+;--------------------------------------------------------------------
+; simul mode with other DBZ misterr07 chars
+
+[State -2, Fury]; left
+type = Explod
+triggerall = !NumExplod(20010)
+triggerall = RoundState = 2
+triggerall = teamside = 1
+trigger1 = !NumPartner
+trigger2 = NumPartner
+trigger2 = Partner, AuthorName = "misterr07"
+ignorehitpause = 1
+anim = 20010
+ID = 20010
+postype = left
+pos = 34,223 - 30*(ID > Partner, ID)
+bindtime = -1
+supermovetime = 9999
+pausemovetime = 9999
+ownpal = 1
+removetime = -1
+scale = .5,.5
+sprpriority = 3
+
+[State -2, Fury];right
+type = Explod
+triggerall = !NumExplod(20010)
+triggerall = RoundState = 2
+triggerall = teamside = 2
+trigger1 = !NumPartner
+trigger2 = NumPartner
+trigger2 = Partner, AuthorName = "misterr07"
+ignorehitpause = 1
+anim = 20011
+ID = 20010
+postype = left
+pos = 288,223 - 30*(ID > Partner, ID)
+bindtime = -1
+supermovetime = 9999
+pausemovetime = 9999
+ownpal = 1
+removetime = -1
+scale = .5,.5
+sprpriority = 3
+
+
+[State -2, ModifyExplod]
+type = ModifyExplod
+trigger1 = 1
+ID = 20010
+scale = (var(59))/560.0,.5
+sprpriority = 3
+
+
+;---------------------------------------------
+; -----------   Time :  ----------------------
+;--------------------------------------------------------------------
+; solo mode (or simul with no other DBZ misterr07 chars !)
+
+[State -2, Time]; left
+type = Explod
+triggerall = !NumExplod(20020)
+triggerall = RoundState = 2
+triggerall = teamside = 1
+trigger1 = !NumPartner
+trigger2 = NumPartner
+trigger2 = Partner, AuthorName != "misterr07"
+ignorehitpause = 1
+anim = 20020
+ID = 20020
+postype = left
+pos = 34,231
+bindtime = -1
+supermovetime = 9999
+pausemovetime = 9999
+ownpal = 1
+removetime = -1
+scale = .5,.5
+sprpriority = 3
+
+[State -2, Time];right
+type = Explod
+triggerall = !NumExplod(20020)
+triggerall = RoundState = 2
+triggerall = teamside = 2
+trigger1 = !NumPartner
+trigger2 = NumPartner
+trigger2 = Partner, AuthorName != "misterr07"
+ignorehitpause = 1
+anim = 20021
+ID = 20020
+postype = left
+pos = 288,231
+bindtime = -1
+supermovetime = 9999
+pausemovetime = 9999
+ownpal = 1
+removetime = -1
+scale = .5,.5
+sprpriority = 3
+
+;--------------------------------------------------------------------
+; simul mode with other DBZ misterr07 chars
+
+[State -2, Time]; left
+type = Explod
+triggerall = !NumExplod(20020)
+triggerall = RoundState = 2
+triggerall = teamside = 1
+trigger1 = !NumPartner
+trigger2 = NumPartner
+trigger2 = Partner, AuthorName = "misterr07"
+ignorehitpause = 1
+anim = 20020
+ID = 20020
+postype = left
+pos = 34,231 - 30*(ID > Partner, ID)
+bindtime = -1
+supermovetime = 9999
+pausemovetime = 9999
+ownpal = 1
+removetime = -1
+scale = .5,.5
+sprpriority = 3
+
+[State -2, Time];right
+type = Explod
+triggerall = !NumExplod(20020)
+triggerall = RoundState = 2
+triggerall = teamside = 2
+trigger1 = !NumPartner
+trigger2 = NumPartner
+trigger2 = Partner, AuthorName = "misterr07"
+ignorehitpause = 1
+anim = 20021
+ID = 20020
+postype = left
+pos = 288,231 - 30*(ID > Partner, ID)
+bindtime = -1
+supermovetime = 9999
+pausemovetime = 9999
+ownpal = 1
+removetime = -1
+scale = .5,.5
+sprpriority = 3
+
+[State -2, ModifyExplod]
+type = ModifyExplod
+trigger1 = 1
+ID = 20020
+scale = (var(8))/960.0,.5
+sprpriority = 3
+
+
+;---------------------------------------------
+; -----------   Z :  ----------------------
+;---------------------------------------------
+
+[State -2, Helper];
+type = Helper
+triggerall = RoundState = 2
+triggerall = numhelper(18000)!=1
+trigger1 = var(59) = 280
+name = "Z"
+ID = 18000
+stateno = 18000
+pos = 0,0
+postype = Left
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+;---------------------------------------------------------
+; -----------  Z-Assist Portrait :  ----------------------
+;---------------------------------------------------------
+
+[State -2, Helper];
+type = Helper
+triggerall = RoundState = 2
+triggerall = numhelper(6050)!=1
+trigger1 = var(57) != 0
+name = "Z-Assit-Portrait"
+ID = 6050
+stateno = 6050
+pos = 0,0
+postype = Left
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+
+;---------------------------------------------------------------------------
+; States that are executed when in self's state file (use statedef -3)
+;---------------------------------------------------------------------------
+
+[Statedef -3]
+
+;------------------------------------------------------------------
+;******************************************
+;******     Var Needed    ******
+;******************************************
+
+[State -3, VarSet]
+type = VarSet
+trigger1 = 1
+fv = 9
+value = 2/(RoundNo)
+ignorehitpause = 1
+persistent = 0
+
+
+; Head Butt Limitation Time Decrease
+[State -3, VarAdd]
+type = VarAdd
+trigger1 = var(27)> 0
+v = 27
+value = -1
+ignorehitpause = 1
+
+; Head Butt Limitation Time Limit
+[State -3, VarSet]
+type = VarSet
+trigger1 = var(27)<= 0
+trigger2 = MoveType = H
+v = 27
+value = 0
+ignorehitpause = 1
+
+
+; Elbow Rush Limitation Time Decrease
+[State -3, VarAdd]
+type = VarAdd
+trigger1 = var(28)> 0
+v = 28
+value = -1
+ignorehitpause = 1
+
+; Elbow Rush Limitation Time Limit
+[State -3, VarSet]
+type = VarSet
+trigger1 = var(28)<= 0
+trigger2 = MoveType = H
+v = 28
+value = 0
+ignorehitpause = 1
+
+
+; Reset Combo Score
+[State -3, VarSet]
+type = VarSet
+trigger1 = MoveType = H
+trigger2 = StateNo = 0
+v = 26
+value = 0
+ignorehitpause = 1
+
+
+; Power Charge
+[State -3, VarSet]
+type = VarSet
+trigger1 = (GameTime%5) = 0
+v = 9
+value = ceil(100*(1 + Power/3000))
+ignorehitpause = 1
+
+
+; Z-Assist Time Limit
+[State -3, VarSet]
+type = VarSet
+trigger1 = RoundState < 2
+v = 8
+value = 540
+ignorehitpause = 1
+
+; Z-Assist Time Limit
+[State -3, VarAdd]
+type = VarAdd
+trigger1 = var(8) < 540
+v = 8
+value = 1
+ignorehitpause = 1
+
+
+[State -3, VarSet]
+type = VarSet
+trigger1 = 1
+v = 6
+value = ID
+ignorehitpause = 1
+
+[State -3, VarSet]
+type = VarSet
+triggerall = NumPartner
+trigger1 = 1
+v = 7
+value = Partner, ID
+ignorehitpause = 1
+
+[State -3, VarSet]
+type = VarSet
+trigger1 = NumHelper(1110) = 0
+v = 13
+value = 0
+ignorehitpause = 1
+
+[State -3, VarSet]
+type = VarSet
+trigger1 = NumHelper(2500) = 0
+v = 17
+value = 0
+ignorehitpause = 1
+
+[State -3, VarSet]
+type = VarSet
+trigger1 = NumHelper(3300) = 0
+v = 18
+value = 0
+ignorehitpause = 1
+
+[State -3, VarSet] ; Z-Assist Choice Position
+type = VarSet
+trigger1 = Time%2=0
+var(19) = Ceil(239.0 - (Screenpos Y))
+ignorehitpause = 1
+
+[State -3, VarSet]
+type = VarSet
+trigger1 = NumHelper(6000) = 0
+v = 20
+value = 0
+ignorehitpause = 1
+
+[State -3, VarRandom]
+type = VarRandom
+triggerall = RoundNo = 1
+trigger1 = AiLevel > 0
+trigger2 = var(57) = 0
+v = 57
+range = 1,3
+persistent = 0
+
+
+;------------------------------------------------------------------
+;******************************************
+;**********     Fury Level     **********
+;******************************************
+;-----------------------
+; Increase when the char is hurt
+[State -3, VarAdd]
+type = VarAdd
+triggerall = StateNo != 150
+triggerall = StateNo != 152
+triggerall = movetype = H
+triggerall = gethitvar(damage)
+trigger1 = var(59) <280
+trigger1 = time = 0
+v = 59
+value = Abs(Floor(((gethitvar(damage))/9)*(3-0.0022*life)))
+persistent = 0
+
+[State -3, VarAdd]
+type = VarAdd
+triggerall = StateNo != 150
+triggerall = StateNo != 152
+triggerall = movetype = H
+triggerall = !gethitvar(damage)
+trigger1 = var(59) <280
+trigger1 = time = 0
+v = 59
+value = 4
+persistent = 0
+
+;-----------------
+; Stay to 280
+[State -3, VarSet]
+type = VarSet
+trigger1 = var(59)>280
+v = 59
+value = 280
+ignorehitpause = 1
+
+;-----------------------
+; Full
+[State -3, VarSet]
+type = VarSet
+triggerall = var(58) != 1
+trigger1 = var(59)>=280
+v = 58
+value = 1
+ignorehitpause = 1
+
+;-----------------------
+; Reset
+[State -3, VarSet]
+type = VarSet
+trigger1 = var(59)=0
+v = 58
+value = 0
+ignorehitpause = 1
+
+;-------------------------------
+; ProjContact for Helper System
+;--------------------------------
+[State -3, ProjContact Reset]
+type = VarSet
+triggerall = var(34)
+trigger1 = (StateNo != 1000)*(StateNo != 1100)
+var(34) = 0
+
+
+;------------------------------------------------------------------
+;*************************************
+;*******   Super & Hyper  *********
+;*************************************
+
+; Assert Special on Super and Hyper
+[State -3, AssertSpecial]
+type = AssertSpecial
+trigger1 = StateNo = [2000,2095]
+trigger2 = StateNo = 2200
+trigger3 = StateNo = 2400
+trigger4 = StateNo = [2600,2660]
+trigger5 = StateNo = [3000,3140]
+flag = nobardisplay
+flag2 = noFG
+flag3 = nomusic
+ignorehitpause = 1
+
+
+;**************************
+;***  Weekly Special ****
+;**************************
+
+[State -3, RemoveExplod]
+type = RemoveExplod
+trigger1 = StateNo != [2000,2095]
+trigger2 = NumHelper(11000)
+trigger3 = MoveType = H
+id = 9100
+ignorehitpause = 1
+
+[State -3, RemoveExplod]
+type = RemoveExplod
+trigger1 = StateNo != [2000,2095]
+trigger2 = NumHelper(11000)
+trigger3 = MoveType = H
+id = 9110
+ignorehitpause = 1
+
+[State -3, RemoveExplod]
+type = RemoveExplod
+trigger1 = StateNo != [2000,2095]
+trigger2 = NumHelper(11000)
+trigger3 = MoveType = H
+id = 9130
+ignorehitpause = 1
+
+
+;****************************
+;**** Saturday Crash  ******
+;****************************
+
+[State -3, RemoveExplod]
+type = RemoveExplod
+trigger1 = StateNo != 2200
+trigger2 = NumHelper(11000)
+trigger3 = MoveType = H
+id = 9101
+ignorehitpause = 1
+
+[State -3, RemoveExplod]
+type = RemoveExplod
+trigger1 = StateNo != 2200
+trigger2 = NumHelper(11000)
+trigger3 = MoveType = H
+id = 9111
+ignorehitpause = 1
+
+[State -3, RemoveExplod]
+type = RemoveExplod
+trigger1 = StateNo != 2200
+trigger2 = NumHelper(11000)
+trigger3 = MoveType = H
+id = 9131
+ignorehitpause = 1
+
+
+;***************************
+;****  Double Sunday  *****
+;***************************
+
+[State -3, RemoveExplod]
+type = RemoveExplod
+trigger1 = StateNo != 2400
+trigger2 = NumHelper(11000)
+trigger3 = MoveType = H
+id = 9102
+ignorehitpause = 1
+
+[State -3, RemoveExplod]
+type = RemoveExplod
+trigger1 = StateNo != 2400
+trigger2 = NumHelper(11000)
+trigger3 = MoveType = H
+id = 9112
+ignorehitpause = 1
+
+[State -3, RemoveExplod]
+type = RemoveExplod
+trigger1 = StateNo != 2400
+trigger2 = NumHelper(11000)
+trigger3 = MoveType = H
+id = 9132
+ignorehitpause = 1
+
+
+;**************************
+;***  Dynamite Monday  ***
+;**************************
+
+[State -3, RemoveExplod]
+type = RemoveExplod
+trigger1 = StateNo != [2600,2660]
+trigger2 = NumHelper(11000)
+trigger3 = MoveType = H
+id = 9103
+ignorehitpause = 1
+
+[State -3, RemoveExplod]
+type = RemoveExplod
+trigger1 = StateNo != [2600,2660]
+trigger2 = NumHelper(11000)
+trigger3 = MoveType = H
+id = 9113
+ignorehitpause = 1
+
+[State -3, RemoveExplod]
+type = RemoveExplod
+trigger1 = StateNo != [2600,2660]
+trigger2 = NumHelper(11000)
+trigger3 = MoveType = H
+id = 9133
+ignorehitpause = 1
+
+
+;******************************
+;******  Saiyan Fury  ******
+;******************************
+
+[State -3, RemoveExplod]
+type = RemoveExplod
+trigger1 = StateNo != [3000,3140]
+trigger2 = NumHelper(11100)
+trigger3 = MoveType = H
+id = 9500
+ignorehitpause = 1
+
+[State -3, RemoveExplod]
+type = RemoveExplod
+trigger1 = StateNo != [3000,3140]
+trigger2 = NumHelper(11100)
+trigger3 = MoveType = H
+id = 9510
+ignorehitpause = 1
+
+[State -3, RemoveExplod]
+type = RemoveExplod
+trigger1 = StateNo != [3000,3140]
+trigger2 = NumHelper(11100)
+trigger3 = MoveType = H
+id = 9530
+ignorehitpause = 1
+
+
+;*****************************************************
+;************    Super Finish BG    ***************
+;*****************************************************
+
+[State -3: Helper]
+type = Helper
+triggerall = RoundState = 3
+triggerall = (WinKO) && (NumHelper(11000) = 0)
+trigger1 = StateNo = [2000,2095]
+trigger2 = StateNo = 2200
+trigger3 = StateNo = 2400
+trigger4 = StateNo = [2600,2660]
+name = "WinKO1"
+id = 11000
+pos = 0,0
+postype = p1
+facing = 0
+stateno = 11000
+ownpal = 1
+keyctrl = 0
+supermovetime = 9999
+pausemovetime = 9999
+ignorehitpause = 1
+
+
+;*****************************************************
+;************    Hyper Finish BG    ***************
+;*****************************************************
+
+[State -3: Helper]
+type = Helper
+triggerall = RoundState = 3
+triggerall = (WinKO) && (NumHelper(11100) = 0)
+trigger1 = StateNo = [3000,3140]
+name = "WinKO2"
+id = 11100
+pos = 0,0
+postype = p1
+facing = 0
+stateno = 11100
+ownpal = 1
+keyctrl = 0
+supermovetime = 9999
+pausemovetime = 9999
+ignorehitpause = 1
+
+
+
+;Prevent Undergound Juggles By Pots
+[State -3, Prevent Undergound Juggles]
+type= targetbind
+trigger1= movehit=1
+trigger1= numtarget=1 && numenemy
+trigger1= (target,time<=1) && (target,ID=enemynear,ID); this is just to prevent Simul issues as usual
+trigger1= !(target,hitshakeover) && (target, hitfall) && (target, pos y>0)
+pos= ceil(p2dist x), ceil(-pos y); keeps P2 at the same horizontal distance, but resets his Y position
+ignorehitpause= 1
+
+;----------------------------
+; Corner Push By POTS
+;----------------------------
+[State -3, Corner Push]; Reset
+type= varset
+trigger1= fvar(5)
+trigger1= numtarget
+trigger1= (target, hitover) || (target, gethitvar(hitshaketime) > 0 && target, time <= 0)
+fvar(5)= 0
+
+[State -3, Corner Push]; Get initial velocity
+type= varset
+trigger1= movecontact=1 && numtarget
+fvar(5)= (target, gethitvar(xvel))
+ignorehitpause= 1
+
+[State -3, Corner Push]; Apply corner push
+type= posadd
+triggerall= fvar(5)
+triggerall= (statetype = S || statetype = C) && numtarget
+triggerall= !hitpausetime && (target, gethitvar(hitshaketime) <= 0)
+triggerall= (target, statetype = S || target, statetype = C) && !(target, gethitvar(yvel)) && !(target, hitfall); See note below
+trigger1= target, frontedgebodydist <= abs(target, vel x)
+trigger1= (target, gethitvar(xvel) * target, facing) > 0
+trigger2= target, backedgebodydist <= abs(target, vel x)
+trigger2= (target, gethitvar(xvel) * target, facing) < 0
+x= ifelse(target, frontedgebodydist <= 0, -1, 1) * (target, facing) * fvar(5)
+
+[State -3, Corner Push]; Apply friction to the velocity
+type= varset
+trigger1= numtarget
+trigger1= target, gethitvar(hitshaketime) <= 0
+fvar(5)= fvar(5) *(0.85)

@@ -1,0 +1,72 @@
+ ______________________________________________________________________________________
+|Buu by Yzan								               |
+|______________________________________________________________________________________|
+ 			             <<Resources>> 
+[Ploaj]                  - http://www.spriters-resource.com/3ds/dragonballzextremebutden/
+[Kaihoku_ic]	         - justnopoint.com/ggslash/
+[Random Talking Bush] 	 - sounds-resource.com/wii/dbzbt3/
+[KONG]                	 - mediafire.com/?84orz89rc78zg
+                   	 - alferdspritesheetunpacker.forkandbeard.co.uk/  
+ ______________________________________________________________________________________
+|___________________________________[Normal Attacks]___________________________________|
+|______________________________________________________________________________________|
+X - Light Attack
+  +F Hyper Punch
+
+Y - Medium Attack
+
+Z - Heavy Attack
+  +D After Heavy (in Air) for air ender
+ ______________________________________________________________________________________
+|___________________________________[    System    ]___________________________________|
+|______________________________________________________________________________________|
+A  - Infinite Attack
+   +D Infinite Ender
+   +F Infinite Ender 2nd (-500 power)
+   +U Pursuit
+
+A  + Forward - Infinite Scramble (-1000 power as a chain)
+   -> Hold A to charge 
+   -> Can be performed after normal attacks
+
+A  + Down    - Ki Blast       -250 power
+A  + Back    - Upper Ki Blast -250 power
+              * Can be performed after grounded normals
+
+XY + Forward/Back - Throw
+C or C + back - Power Dash -500 (-1000 while guarding)
+FF | BB       - DASH (In Air OK) 
+D -> U        - Super Jump 
+ ______________________________________________________________________________________
+|___________________________________[Hyper  Attacks]___________________________________|
+|______________________________________________________________________________________|
+Vanishing Bal-         - Down Forward              X  
+
+Vanishing Ball         - Down Forward              Y 
+   Hyper Vanishing     -> Z (-500)
+
+Innocence Train	- Down Back                 A 
+
+Childish Awry          - Forward Down Forward      Z
+
+Childish Breaker       - Forward Down Forward      A (In AIR) (Can be performed after Childish Awry and Majin Ken)
+ 
+Majin Tipper           - Down Forward              A (In AIR) (Can be performed after Childish Awry)
+   Majin Ken             -> Down Forward A (-500)  
+ ______________________________________________________________________________________
+|___________________________________[Ultimate Moves]___________________________________|
+|______________________________________________________________________________________|
+Innocence Locomotive   - Down Forward Down Forward A  
+   Justice Punch!        -> Hold A     
+
+Innocence Breath       - Down Forward Down Forward Z
+
+Angry Explosion        - Down Forward Down 	   XY   ______________________________________________________________________________________
+|___________________________________[  Thank You   ]___________________________________|
+|______________________________________________________________________________________|
+[Genesis], [Ghost Killer], [JayJay], [TheAnswer], [Dumanios] for testing and support.
+[Daniel9999999] because maths.
+[YongMing], for his cornerpush code I've been using for years. 
+
+Thank you Shadow.624 for some effects and Ploaj for ripping the sprites and making this possible.
+:) 

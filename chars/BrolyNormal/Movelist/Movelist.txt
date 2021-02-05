@@ -1,0 +1,39 @@
+Movelist:
+
+Broly has lots of projectile invulnerability as well as hitoverride.  Can't possibly specify all here. Find out yourself!
+
+Normal Moves:
+1. F+x (guard high)
+2. F+a (invincible startup)
+
+Special Moves:
+1. DF+x (can do 3 times in a row)
+2. DF+x in air (diagonally down fireball)
+3. DF+b in air (unblockable explosion pillar)
+4. DB+x (unblockable hit at 4 animelem.  If that doesn't hit, will launch a fast-speed projectile. Signature move.)
+
+5. DF+y (has projectile autoguard)
+6. DB+b (air version of the above chest fireball dash)
+
+7. DF+z (counters physical hits only. Can negate but not counter projectiles. Press z and he will pose and end anim after animtime = 0.  But hold Z and he will unleash the counter even without countering. Hold z for 20 ticks and release, to release the hit faster.)
+8. DB+a (invulnerable to projectiles. Unblockable grab. Can be done in air.)
+9. DF+a (air stomp. Can be done 2 more times in succession, afterwhich p2 cannot be hit anymore while on ground.)
+10. DF+a (if done in air, this is a stationary unblockable grab.)
+
+11. DB+y (Broly dashes, grabs, and flings enemy to the edge of screen with wallbounce.)
+12. DB+a (air version of the dash grab
+
+13. DF+b (unblockable close fireball)
+14. DB+b (unblockable leap grab and kick. Signature move)
+15. press c (activates shield, which lasts for a while. While active, cannot use super moves.  Can press c to deactivate. Can be done in air.)
+16. any direction + y (teleport.  Can also teleport after certain normal hits connect)
+17. DB+z (Homing chest fireball. Can be done in air)
+
+Super Moves:
+1. DFDF+x (signature fireball move 1.  Homing fireball)
+2. DFDF+y (signature fireball move 2.  Homing also. Explodes when contact with anything, even ground.)
+3. DBDB+b (Super dash grab, can be done in air. Will knock down with low damage when guarded. Press direction up or down to make him fly up or downward to grab the enemy.)
+4. DFDF+a (Siganture move.  Broly walks forward, and if hit, does a grab + punch. counters all moves.)
+5. DFDF+z (unblockable dash + combo. need 2 power bars. Note that if you miss the dash, he will turn around and fire lots of projectiles at enemy.)
+6. DFDF+c (unblockable, one hit KO signature move - but does not do any damage for some reason to some characters)
+7. DDD+y (can deactivate and activate again. Drains mana while active, and cannot use special/super moves. While active, allows you to chain combo from any normal move, and increases damage of normal moves.)

@@ -1,0 +1,113 @@
+;***************************************************
+; 	       [ Mister Buu ]
+;	       [ by Yzan ]
+;***************************************************
+;#     #var(0)   -  AAAAAAAAAAAAAAAAAAA   #     #
+;#     #var(1)   -  Movecontact           #     #
+;#     #var(2)   -  Custom Jump           #     #
+;#     #var(3)   -  Fake Time             #     #
+;#     #var(4)   -  Dash                  #     #
+;#     #var(5)   -  Something ID          #     #
+;#     #var(6)   -  Wallbounce            #     #
+;#     #var(7)   -  Charge Attack         #     #
+;#     #var(8)   -  Prevstateno?          #     #
+;#     #var(9)   -  Charge Hit?           #     #
+;#     #var(10)  -  Infinite Attack       #     #
+;#     #var(11)  -  Helper Hit            #     #
+;#     #var(12)  -  Mini Helper Add Alpha #     #
+;#     #var(15)  -  MAX JUGGLE            #     #
+;#     #var(16)  -  JUGGLE DEDUCTION      #     #
+;#     #var(17)   - No hit flag           #     #
+;#     #var(19)   - Mettle Remover        #     #
+;#     #var(20)  -  Support               #     #
+;#     #var(21)  -  AAAAAAAAAAAAA part 2  #     #
+;#     #var(23)  -  Intro decider         #     #
+;#     #var(28)  -  Throw Facing          #     #
+;#     #var(29)  -  OOH KILL EM           #     #
+;#     #var(30)  -  Super Text            #     #
+;#     #var(40)  -  Dampener              #     #
+;#     #fvar(3)  -  Super Jump            #     #
+;#     #fvar(6)  -  Some garbage          #     #
+;#     #fvar(10) -  Helper Call Okay!     #     #		
+;#     #fvar(20) -  True Damage	          #     #
+;#     #fvar(25) -  Cornerpush            #     #
+;###   #var(20)  -  LOL                                       ###
+;###   #var(25)  -  WHAT DO YOU LOOK LIKE?                    ###
+;###   #var(26)  -  UH OHHHHHHHHHHH 			      ###
+;###   #var(27)  -  HOW MUCH DOES THIS GUY WEIGH?             ###
+;***************************************************
+
+[Data]
+life = 1075
+attack = 100
+defence = 100
+power = 2000
+fall.defence_up = 50
+liedown.time = 30
+airjuggle = 0
+sparkno = s7503
+guard.sparkno = s7550
+KO.echo = 0
+volume = 200
+IntPersistIndex = 19
+FloatPersistIndex = 40
+
+[Size]
+xscale = .833333     
+yscale = .9           
+ground.back = 20     
+ground.front = 20    
+air.back = 15         
+air.front = 15      
+height = 80         
+attack.dist = 160    
+proj.attack.dist = 90 
+proj.doscale = 0      
+head.pos = 5, -115    
+mid.pos = 14, -68     
+shadowoffset = 0     
+draw.offset = 0,0     
+
+[Velocity]
+walk.fwd  = 1.15      
+walk.back = -.86     
+run.fwd  = 0, 0     
+run.back = 0,-3.8  
+jump.neu = 0,-10.15     
+jump.back = -1.65     
+jump.fwd = 2.18        
+runjump.back = -2.55,-8.1  
+runjump.fwd = 4,-8.1      
+airjump.neu = 0,-8.1       
+airjump.back = -2.55       
+airjump.fwd = 2.5          
+air.gethit.groundrecover = -.15,-3.5   
+air.gethit.airrecover.mul = .5,.2      
+air.gethit.airrecover.add = 0,-4.5     
+air.gethit.airrecover.back = -1        
+air.gethit.airrecover.fwd = 0         
+air.gethit.airrecover.up = -2         
+air.gethit.airrecover.down = 1.5       
+
+[Movement]
+airjump.num = 0        
+airjump.height = 0    
+yaccel = .47           
+stand.friction = .80   
+crouch.friction = .82  
+stand.friction.threshold = 2          
+crouch.friction.threshold = .05       
+air.gethit.groundlevel = 25           
+air.gethit.groundrecover.ground.threshold = -20  
+air.gethit.groundrecover.groundlevel = 10   
+air.gethit.airrecover.threshold = -1   
+air.gethit.airrecover.yaccel = .35     
+air.gethit.trip.groundlevel = 15       
+down.bounce.offset = 0,0            
+down.bounce.yaccel = .47               
+down.bounce.groundlevel = 0          
+down.friction.threshold = .05         
+
+[Quotes]
+victory1 = "Do you like candy?"
+victory2 = "Woohoo! Let's play again sometime!" 

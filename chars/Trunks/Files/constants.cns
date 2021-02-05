@@ -1,0 +1,106 @@
+[Data]
+life = 1000
+attack = 100
+defence = 100
+fall.defence_up = 50
+liedown.time = 60
+airjuggle = 15
+sparkno = 2
+guard.sparkno = 40
+KO.echo = 0
+volumescale = 100
+IntPersistIndex = 60
+FloatPersistIndex = 40
+
+[Size]
+xscale = .85
+yscale = .85
+ground.back = 18
+ground.front = 18
+air.back = 12
+air.front = 12
+height = 60
+attack.dist = 160
+proj.attack.dist = 90
+proj.doscale = 0
+head.pos = 3, -84
+mid.pos = 0, -56
+shadowoffset = 0
+draw.offset = 0,0
+
+[Velocity]
+walk.fwd  = 2.6
+walk.back = -2.28
+run.fwd  = 7.52, 0
+run.back = -7,-3
+jump.neu = 0, -10
+jump.back = -3.2
+jump.fwd = 3
+runjump.back = -4.2,-10
+runjump.fwd = 6.2,-10
+airjump.neu = 0,-8.1
+airjump.back = -2.55
+airjump.fwd = 2.5
+air.gethit.groundrecover = -.15,-3.5
+air.gethit.airrecover.mul = .5,.2
+air.gethit.airrecover.add = 0,-4.5
+air.gethit.airrecover.back = -1
+air.gethit.airrecover.fwd = 0
+air.gethit.airrecover.up = -2
+air.gethit.airrecover.down = 1.5
+
+[Movement]
+airjump.num = 0
+airjump.height = 35
+yaccel = .5
+stand.friction = .85
+crouch.friction = .82
+stand.friction.threshold = 2
+crouch.friction.threshold = .05
+air.gethit.groundlevel = 25
+air.gethit.groundrecover.ground.threshold = -20
+air.gethit.groundrecover.groundlevel = 10
+air.gethit.airrecover.threshold = -1
+air.gethit.airrecover.yaccel = .35
+air.gethit.trip.groundlevel = 15
+down.bounce.offset = 0, 20
+down.bounce.yaccel = .4
+down.bounce.groundlevel = 12
+down.friction.threshold = .05
+
+[Quotes]
+victory0 = "I will make this a better place"
+victory1 = "I defeat you, so I will continue changing my destiny"
+victory2 = "It was great to travel back in time and meet Mr. Goku and the others"
+victory3 = "Went to the Hyperbolic Time Chamber was very effective"
+victory80 = "Wow, Mr. Goku, you were a tough opponent" ;goku
+victory81 = "Father, I can see that you improved a lot" ;vegeta
+victory82 = "¡This is for killing Gohan and the others!" ;androids 17 & 18
+victory83 = "Even if you reach perfection, I can still defeat you" ;cell
+victory84 = "If I had fused as a child, as did this Trunks, I could have defeated the androids before" ;gotenks
+
+[es.Quotes]
+victory0 = "Haré de este sitio un lugar mejor"
+victory1 = "Te derroté, así que seguiré cambiando mi destino"
+victory2 = "Fue muy bueno viajar al pasado y conocer al señor Goku y los demás"
+victory3 = "Entrar a la Habitación del Tiempo fue muy efectivo"
+victory80 = "Vaya, señor Goku, usted fue un rival duro" ;goku
+victory81 = "Padre, veo que te has superado bastante" ;vegeta
+victory82 = "¡Esto es por haber matado a Gohan y a los demás!" ;androides 17 y 18
+victory83 = "Alcanzes la perfección o no, eso no me impide derrotarte" ;cell
+victory84 = "Vaya, si yo me hubiese fusionado de niño como lo hizo este Trunks, hubiese podido haber derrotado los androides antes" ;gotenks
+
+
+;var(0) = Ki blast
+;var(1) = air dash
+;var(2) = hit detection
+;var(3) = hitspark chooser
+;var(4) = hitspark pos x
+;var(5) = hitspark pos y
+;var(6) = hitspark guard
+;var(7) = air dash friction time
+;var(8) = burning attack hitcount
+;var(9) = burning attack pausetime
+;var(10) = burning attack override
+;fvar(5) = corner push
+;fvar(39) = damage dampener

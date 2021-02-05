@@ -1,0 +1,35 @@
+; ADD004 BASIC PIEs ReBuilded DEF (21-10-2016)
+;==============================================
+; This file is Made by PIE.
+; there is a backup of this file in the same folder, named "<samename>.a4bk".
+; to Restore, use assist tool, or delete this file, then remove ".a4bk" from the neme of backup.
+;==============================================
+
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+[Info]
+name ="Son Goku"
+displayname ="Goku"
+versiondate =28/10/2015
+mugenversion = 
+author ="Mikel8888"
+pal.defaults =1,2,3,4,5,6
+[Files]
+sprite =Goku.sff
+anim =Goku.air
+sound =Goku.snd
+cmd =Goku.cmd
+cns=add004basic.reb1
+st=add004basic.reb1
+stcommon=common1.cns
+pal1=1.act
+pal2=2.act
+pal3=3.act
+pal4=4.act
+pal5=5.act
+pal6=6.act
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

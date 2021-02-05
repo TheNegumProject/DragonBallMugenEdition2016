@@ -1,0 +1,33 @@
+[Info]
+name = "Trunks EB"
+displayname = "Trunks"
+versiondate = 09,10,2015
+mugenversion = 1.0
+author = "ShinLucho"
+pal.defaults = 1,2,3
+localcoord = 320,240
+
+[Files]
+sprite = Files/sprites.sff
+anim = Files/animations.air
+sound = Files/sounds.snd
+cns = Files/constants.cns
+cmd = Files/commands.st
+
+stcommon = common1.cns
+st = Files/system.st
+st1 = Files/normals.st
+st2 = Files/specials.st
+st3 = Files/supers.st
+
+[Palette Keymap]
+x = 1
+y = 2
+z = 3
+a = 1
+b = 2
+c = 3
+
+[Arcade]
+intro.storyboard =
+ending.storyboard =

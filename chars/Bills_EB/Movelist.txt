@@ -1,0 +1,45 @@
+
+=======================| MOVESET |==============================
+
+BASICS:
+
+Combo 1 - A,A,A
+
+Combo 2 - B,B,B
+
+Combo 3 - C,C,C
+
+
+Air Combo - A,A / B,B
+
+
+X - Support Character - Whis
+
+Y - Zanzoken
+
+Z - Ki Blast
+
+S - Power Chargue
+
+SPECIALS:
+
+D,DF,F, a - HeadShot
+
+D,DB,B, a - Finger Hit
+
+D,DF,F, b - God of Destruction's Rampage
+
+D,DB,B, b - God Counter
+
+D,DF,F, c - God of Destruction's Anger
+
+D,DB,B, c - Full Power Energy Blast Volley
+
+SUPERS:
+
+D,B,F, a - God of Destruction's Wrath
+
+D,B,F, b - AfterImage Strike
+
+D,B,F, c - Sphere of Destruction
+

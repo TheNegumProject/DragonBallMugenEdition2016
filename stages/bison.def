@@ -1,0 +1,84 @@
+[Info]
+name = "Torneo"
+author = Gabito23               
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -90
+boundright = 90
+boundhigh = -190
+boundlow = 0
+verticalfollow = .4
+tension = 53
+zoomout = 0.9 
+zoomin = 1 
+[PlayerInfo]
+p1startx = -60
+p1starty = 0
+p1startz = 0
+p1facing = 1
+;------------------
+p2startx = 60
+p2starty = 0
+p2startz = 0
+p2facing = -1
+;------------------
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1               ;tamaño de los chars
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 220                 ;linea donde estaran parados los chars
+autoturn = 1
+resetBG = 0
+
+[Shadow]
+color = 22,22,22
+yscale = 1
+reflect = 1
+fade.range = -100, 80
+
+[Music]
+bgmusic = sound/mvc2clock.mid
+bgvolume = 255
+
+[BGdef]
+spr = stages/bison.sff
+
+
+
+
+[BG 1]
+type  = normal
+spriteno = 0,4 
+layerno = 0
+start = 0, 0
+delta = .8, 1
+mask  = 1
+tile  = 0, 0
+
+[BG 2]
+type  = normal
+spriteno = 0,3 
+layerno = 0
+start = 0, 0
+delta = .8, 1
+mask  = 1
+tile  = 0, 0
+
+
+
+
+

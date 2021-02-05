@@ -1,0 +1,28 @@
+[state 600, veladd]
+type = veladd
+trigger1 = var(31) = 1 && var(30) = 6
+y = 0.3
+
+ground.velocity = -6,0 
+air.velocity = 0,-3.5
+
+[state 600, x]
+type = veladd
+trigger2 = ishelper(40) = 1
+trigger2 = (parent, hitpausetime =[1, 9]) || (helper(41),hitpausetime =[1, 9])
+trigger1 = numhelper(40) = 1
+trigger1 = ishelper = 0
+trigger1 = (helper(40), hitpausetime = [1, 9]) || (helper(41),hitpausetime =[1, 9])
+trigger3 = ishelper(41) = 1
+trigger3 = (parent, hitpausetime = [1, 9]) || (helper(40),hitpausetime =[1, 9])
+y = -0.39
+
+[state 600, 3]
+type = posfreeze
+trigger1 = ishelper(40) = 1
+trigger1 = (parent, hitpausetime =[1, 9]) || (helper(41),hitpausetime =[1, 9])
+trigger2 = numhelper(40) = 1
+trigger2 = ishelper = 0
+trigger2 = (helper(40), hitpausetime = [1, 9]) || (helper(41),hitpausetime =[1, 9])
+trigger3 = ishelper(41) = 1
+trigger3 = (parent, hitpausetime = [1, 9]) || (helper(40),hitpausetime =[1, 9])

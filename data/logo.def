@@ -1,0 +1,53 @@
+[SceneDef]
+spr = logo.sff
+
+;------------------------------------
+[Scene 0]
+bgm = intro.mp3
+bgm.loop = 0
+fadein.time = 0
+fadeout.time = 0
+layerall.pos = 0,0
+layer0.anim = 99
+layer0.offset = 0,0
+end.time = 5000
+;------------------------------------------------------------
+
+;-------------------------------------------------------------
+[Scene 10]
+fadein.time = 20
+fadeout.time = 120
+fadeout.col = 0, 0, 0
+bg.name = BG18
+clearcolor = 0, 0, 0
+end.time = 2800
+;------------------------------------
+
+[BG18]
+;-------------------
+
+[BG18 0]
+type  = normal
+spriteno = 0,0
+layerno = 0
+start = 0,0
+mask =1
+
+[BG18 0]
+type  = normal
+spriteno = 0,3
+layerno = 0
+start = 0,0
+mask =1
+
+;-------------------
+[BG18 1]
+Type = anim
+actionno = 1
+Start = 0,0
+mask = 1
+
+
+[Begin Action 1]
+0,1,0,0,50
+-1,-1,0,0,30

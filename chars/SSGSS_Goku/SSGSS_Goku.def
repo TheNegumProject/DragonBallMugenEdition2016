@@ -1,0 +1,35 @@
+[Info]
+name = "Super Saiyan God Super Saiyan Goku"
+displayname = "Goku"
+versiondate = 08,27,2015 ; Release 2
+mugenversion = 1.0
+author = "Ryon"
+pal.defaults = 1,2,3,4,5,6,7,8,9,10,11,12
+localcoord = 320,240
+
+[Files]
+cmd     = SSGSS_Goku.cmd
+cns     = SSGSS_Goku.cns
+st      = SSGSS_Goku.cns
+stcommon = common1.cns
+sprite  = SSGSS_Goku.sff
+anim    = SSGSS_Goku.air
+sound   = SSGSS_Goku.snd
+
+[Palette Keymap]
+x = 1 
+y = 2
+z = 3
+a = 4
+b = 12
+c = 19
+x2 = 6
+y2 = 9
+z2 = 9
+a2 = 20
+b2 = 21
+c2 = 18
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

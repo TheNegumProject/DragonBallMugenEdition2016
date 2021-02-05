@@ -1,0 +1,35 @@
+; ADD004 BASIC PIEs ReBuilded DEF (21-10-2016)
+;==============================================
+; This file is Made by PIE.
+; there is a backup of this file in the same folder, named "<samename>.a4bk".
+; to Restore, use assist tool, or delete this file, then remove ".a4bk" from the neme of backup.
+;==============================================
+
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+[Info]
+name = "Gotenks"
+displayname = "GOTENKS"
+versiondate = 09,03,2008
+mugenversion = 04,14,2002
+author = "sui"
+pal.defaults = 1,2,3,4,5,6
+[Files]
+sprite = SuperGotenks.sff
+anim = SuperGotenks.air
+sound = SuperGotenks.snd
+cmd = SuperGotenks.cmd
+cns=add004basic.reb1
+st=add004basic.reb1
+stcommon=common1.cns
+pal1 = act1.act
+pal2 = act2.act
+pal3 = act3.act
+pal4 = act4.act
+pal5 = act5.act
+pal6 = act6.act
+[Arcade]
+;intro.storyboard = 
+;ending.storyboard = 

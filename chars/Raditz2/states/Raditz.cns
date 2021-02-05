@@ -1,0 +1,169 @@
+; Constants file By Misterr07
+
+;*******************************************************
+; Variables :
+
+; var(1) : Intro Choice
+; var(2) : Win Choice
+; var(3) : Lose Choice
+;
+; var(4) : Throw limitations
+;
+; var(6) : ID
+; var(7) : ID Partner
+;
+; var(8) : Time Limit for Z-Assist
+; var(9) : Power
+; var(10) : Hitvoice
+;
+; var(11) : Fireball x or y
+; var(12) : Ki Blast a or b
+; var(13) : Ki Blast End
+; var(14) : Head Butt a or b
+; var(15) : Punishement a or b
+; var(16) : Elbow Rush x or y
+; var(17) : Double Sunday End
+; var(18) : Saiyan Fury Beam End
+;
+; var(19) : Z-Assist Choice Position
+; var(20) : Z-Assist Choice Wait Time
+; var(57) : Z-Assist Choice
+;
+; var(22) : AI Sayan Fury
+;
+; var(26) : Combo for Score
+;
+; var(27) : Head Butt Limitation Time
+; var(28) : Elbow Rush Limitation Time
+;
+; var(34) : ProjContact for Helper
+;
+; var(35) : AI Level
+; var(36) : AI Activation
+; var(37) : Minimum number of enemy helpers
+; var(38) : Number of projectiles+helpers of opponent
+;
+; var(50) : Life
+; var(52) : Attack
+; var(53) : Time in game
+; var(54) : Life for Score
+; var(55) : Time for Score
+; var(56) : Attack for Score
+;
+; var(58) : Fury full or not ?
+; var(59) : Fury Level
+;
+
+; fvar(5) : Corner Push
+; fvar(9) : Number of round for Score
+; fvar(18) : Damage Dampener based on power
+; fvar(19) : Damage Dampener based on hits
+; fvar(20) : Damage Dampener
+
+;*******************************************************
+; Channels :
+
+; channel 0 : voice
+; channel 1 : power charge
+; channel 2 : Hit voice
+; channel 3 : Miscellaneous sound
+; channel 4 : Intro voice
+; channel 5 : Intro Fx
+;
+; channel 7 : Ki-Blast sound
+
+;*******************************************************
+
+
+[Data]
+life = 1000			;Amount of life to start with
+power = 3000		;Amount of maximum power
+attack = 100		;attack power (more is stronger)
+defence = 100		;defensive power (more is stronger)
+fall.defence_up = 50	;Percentage to increase defense everytime player is knocked down
+liedown.time = 60		;Time which player lies down for, before getting up
+airjuggle = 18		;Number of points for juggling
+sparkno = 2			;Default hit spark number for HitDefs
+guard.sparkno = 40	;Default guard spark number
+KO.echo = 0			;1 to enable echo on KO
+;volume = 0			;Volume offset (negative for softer)
+IntPersistIndex = 54	;Variables with this index and above will not have their values
+FloatPersistIndex = 40  ;reset to 0 between rounds or matches. There are 60 int variables,
+  				;indexed from 0 to 59, and 40 float variables, indexed from 0 to 39.
+  				;If omitted, then it defaults to 60 and 40 for integer and float
+  				;variables repectively, meaning that none are persistent, i.e. all
+  				;are reset. If you want your variables to persist between matches,
+  				;you need to override state 5900 from common1.cns.
+
+
+[Size]
+xscale = 1			;Horizontal scaling factor.
+yscale = 1			;Vertical scaling factor.
+ground.back = 26		;Player width (back, ground)
+ground.front = 22		;Player width (front, ground)
+air.back = 18		        ;Player width (back, air)
+air.front = 18		        ;Player width (front, air)
+height = 76			;Height of player (for opponent to jump over)
+attack.dist = 160		;Default attack distance
+proj.attack.dist = 90	        ;Default attack distance for projectiles
+proj.doscale = 0		;Set to 1 to scale projectiles too   
+head.pos = -3, -98	        ;Approximate position of head
+mid.pos = -4, -64		;Approximate position of midsection
+shadowoffset = 0		;Number of pixels to vertically offset the shadow
+draw.offset = 0,0		;Player drawing offset in pixels (x, y)
+
+[Velocity]
+walk.fwd  = 2.25		;Walk forward
+walk.back = -2.05		;Walk backward
+run.fwd  = 7.45, 0		;Run forward (x, y)
+run.back = -5.25,-4.975	;Hop backward (x, y)
+jump.neu = 0,-9.25		;Neutral jumping velocity (x, y)
+jump.back = -3.75		;Jump back Speed (x, y)
+jump.fwd = 3.35		;Jump forward Speed (x, y)
+runjump.back = -3.75,-9.35;Running jump speeds (opt)
+runjump.fwd = 4.55,-9.55	;.
+airjump.neu = 0,-9.25	;.
+airjump.back = -2.66	;Air jump speeds (opt)
+airjump.fwd = 2.4		;.
+air.gethit.groundrecover = -.15,-3.5  ;Velocity for ground recovery state (x, y) **MUGEN 1.0**
+air.gethit.airrecover.mul = .5,.2     ;Multiplier for air recovery velocity (x, y) **MUGEN 1.0**
+air.gethit.airrecover.add = 0,-4.5    ;Velocity offset for air recovery (x, y) **MUGEN 1.0**
+air.gethit.airrecover.back = -1       ;Extra x-velocity for holding back during air recovery **MUGEN 1.0**
+air.gethit.airrecover.fwd = 0         ;Extra x-velocity for holding forward during air recovery **MUGEN 1.0**
+air.gethit.airrecover.up = -2         ;Extra y-velocity for holding up during air recovery **MUGEN 1.0**
+air.gethit.airrecover.down = 1.5      ;Extra y-velocity for holding down during air recovery **MUGEN 1.0**
+
+[Movement]
+airjump.num = 0		;Number of air jumps allowed (opt)
+airjump.height = 20	;Minimum distance from ground before you can air jump (opt)
+yaccel = .50125		;Vertical acceleration
+stand.friction = .88	;Friction coefficient when standing
+crouch.friction = .82	;Friction coefficient when crouching
+stand.friction.threshold = 2          ;If player's speed drops below this threshold while standing, stop his movement **MUGEN 1.0**
+crouch.friction.threshold = .05       ;If player's speed drops below this threshold while crouching, stop his movement **MUGEN 1.0**
+air.gethit.groundlevel = 25           ;Y-position at which a falling player is considered to hit the ground **MUGEN 1.0**
+air.gethit.groundrecover.ground.threshold = -20 ;Y-position below which falling player can use the recovery command **MUGEN 1.0**
+air.gethit.groundrecover.groundlevel = 10   ;Y-position at which player in the ground recovery state touches the ground **MUGEN 1.0**
+air.gethit.airrecover.threshold = -1  ;Y-velocity above which player may use the air recovery command **MUGEN 1.0**
+air.gethit.airrecover.yaccel = .35    ;Vertical acceleration for player in the air recovery state **MUGEN 1.0**
+air.gethit.trip.groundlevel = 15      ;Y-position at which player in the tripped state touches the ground **MUGEN 1.0**
+down.bounce.offset = 0, 20            ;Offset for player bouncing off the ground (x, y) **MUGEN 1.0**
+down.bounce.yaccel = .4               ;Vertical acceleration for player bouncing off the ground **MUGEN 1.0**
+down.bounce.groundlevel = 12          ;Y-position at which player bouncing off the ground touches the ground again **MUGEN 1.0**
+down.friction.threshold = .05         ;If the player's speed drops below this threshold while lying down, stop his movement **MUGEN 1.0**
+
+[Quotes]
+; Up to 100 victory quotes can be specified per language (victory0 - victory99)
+victory1 = "Time to put you in your place!"
+victory2 = "You've got some nerve!"
+victory3 = "Ha hah! I did it! I'm the strongest in the universe!"
+victory4 = "I'll teach YOU to look down on me!"
+victory5 = "Hoo ho ha ha ha ha ha! Now you understand the power of Saiyans!"
+victory6 = "What's wrong, your majesty? Holding back?"
+victory7 = "What's wrong? Are you… begging for your life?"
+victory8 = "You made the mistake of underestimating my power."
+victory9 = "Haha! I crushed you like a bug beneath my feet!"
+victory10 = "Tch! You don't deserve to be my brother!" ; (Vs Goku)
+victory11 = "How dare you defy your brother!" ; (Vs Goku)
+victory12 = "Tch! That brat gave me a scare." ; (Vs Gohan)
+victory13 = "You'll regret acting so high and mighty." ; (Vs Bardock)

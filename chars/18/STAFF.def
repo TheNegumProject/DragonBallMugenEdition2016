@@ -1,0 +1,35 @@
+[Info]
+localcoord = 320,240
+
+[SceneDef]
+spr = STAFF.sff
+startscene = 0
+
+;------------------------------------
+[Scene 0]
+
+fadein.time = 10
+fadein.col = 0,0,0
+fadeout.time = 8
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+bg.name = BG0
+layerall.pos = 0,0
+layer0.offset = 160,0
+layer0.starttime = 0
+
+bgm = Dragon Ball Final Bout Tournament theme.mp3
+bgm.loop = 0
+end.time = 7300
+
+;------------------------------------
+[BG0Def]
+
+[BG0 BG]
+type = normal
+spriteno = 0,1
+start = 0,120
+tile = 1,1
+velocity = -0.5,0
+
+

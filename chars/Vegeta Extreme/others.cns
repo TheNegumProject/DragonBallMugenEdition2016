@@ -1,0 +1,58 @@
+[StateDef -3]
+
+[state -3]
+type = stopsnd
+trigger1 = stateno != 190
+channel = 1
+
+[state -3]
+type = stopsnd
+trigger1 = stateno != 6010
+channel = 2
+
+[state -3]
+type = stopsnd
+trigger1 = stateno != 6010
+channel = 3
+
+[state -3]
+type = removeexplod
+trigger1 = stateno != 6010
+id = 6010
+
+[State 0]
+type = DefenceMulSet
+trigger1 = 1
+value = 1-var(7)*0.25
+
+[State 0]
+type = AttackMulSet
+trigger1 = 1
+value = 1
+
+[State 0]
+type = AttackMulSet
+trigger1 = stateno =[6050,6135]
+value = 1+(var(8)/4.0)
+
+[State 0]
+type = Explod
+triggerall = var(8) = 1
+triggerall = life > 0
+trigger1 = timemod = 5,0
+anim = 6022+var(7)*10000
+pos = 0-random%50+random%50,0-random%25+random%25
+velocity = 0-random%2+random%2,-4
+postype = p1  ;p2,front,back,left,right
+removetime = -2
+ontop = 1
+ownpal = 1
+scale = 1,1
+supermove = 1
+
+[state -3]
+type = playsnd
+triggerall = stateno = [5000,5035]
+trigger1 = time = 0
+trigger1 = (random%100 < 10)
+value = S0,18+random%3

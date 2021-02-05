@@ -1,0 +1,78 @@
+; ADD004 BASIC PIEs ReBuilded DEF (21-10-2016)
+;==============================================
+; This file is Made by PIE.
+; there is a backup of this file in the same folder, named "<samename>.a4bk".
+; to Restore, use assist tool, or delete this file, then remove ".a4bk" from the neme of backup.
+;==============================================
+
+;==============
+;Kid buu with base stuff.
+;==============
+;------------------------------------------------------
+;Author:	Cyanide
+;------------------------------------------------------
+;=============================================================
+;---------------------
+;Character Information
+;---------------------
+[Info]
+name ="Kid Buu"        
+displayname ="Kid Buu" 
+versiondate =01.18.2005   
+mugenversion =11,01,2001   
+author ="Cyanide"         
+pal.defaults =1,2,3,4,5,6
+;---------------------
+;Character Files
+;---------------------
+;=====================
+[Files]
+;=====================
+;---------------------
+;Command Set
+;---------------------
+cmd     =kbuu.cmd
+;---------------------
+;State Files
+;---------------------
+cns=add004basic.reb1
+st=add004basic.reb1
+stcommon=common1.cns
+;---------------------
+;Sprite/Sound
+;---------------------
+sprite  =kbuu.sff
+anim    =kbuu.air
+sound   =kbuu.snd
+pal1=kbuu.act
+pal2=Kred.act
+pal3=Kgreen.act
+pal4=Kblue.act
+pal5=Korange.act
+pal6=Kliquid.act
+pal7=KBizarro.act
+;---------------------
+;Palletes
+;---------------------
+;Arcade mode
+[Arcade]
+intro.storyboard=
+ending.storyboard=..\data\final.def
+;intro.storyboard = intro.def
+;ending.storyboard = ending.def
+;----------------------------------
+;----------------------------------
+[Extra Info]
+Manufactory=
+Game=
+Style=
+AI=
+Race=
+Size=
+Strenght=
+Buttons=6
+Combos=
+Boss=1
+SuperJump=0
+Levitate=0
+Secret=0

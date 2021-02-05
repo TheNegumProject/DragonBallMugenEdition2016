@@ -1,0 +1,26 @@
+; ADD004 BASIC PIEs ReBuilded DEF (21-10-2016)
+;==============================================
+; This file is Made by PIE.
+; there is a backup of this file in the same folder, named "<samename>.a4bk".
+; to Restore, use assist tool, or delete this file, then remove ".a4bk" from the neme of backup.
+;==============================================
+
+[Info]
+name ="Vegeta Extreme"
+displayname ="Vegeta"
+versiondate =2015.07.18
+mugenversion =1.0
+author ="LegendTTA"
+pal.defaults =1
+[Files]
+cmd     =Vegeta.cmd
+cns=add004basic.reb1
+st=add004basic.reb1
+stcommon=common1.cns
+sprite  =Vegeta.sff
+anim    =Vegeta.air
+sound   =Vegeta.snd
+pal1=Vegeta.act
+[Arcade]
+intro.storyboard=
+ending.storyboard=

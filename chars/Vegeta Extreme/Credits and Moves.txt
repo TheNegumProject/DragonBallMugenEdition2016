@@ -1,0 +1,40 @@
+Vegeta Extreme 1.1
+
+Credits:
+
+sprite and sound effects:
+Ploaj, Mikel8888, MFT, Roken, MGSSJ2
+
+Moves:
+
+
+Ground:
+
+a,a,a: Combo 1			FREE
+b,b,b: Combo 2			FREE
+x,x,x: Combo 3			FREE
+y,y,y: Combo 4			FREE
+c: Ki Blast			FREE
+
+D,F,a: Teleport Attack 1	FREE
+D,B,a: Teleport Attack 2	FREE
+D,F,b: Badass Kick		500 power
+D,B,b: Small Explosion		500 power
+	
+D,a: Galick Gun			1000 power
+D,b: 10 Ki Blasts		1000 power
+D,c: Big Bang Attack		2000 power
+D,x: 10 Hits Melee Combo	2000 power
+D,y: Final Flash		3000 power	
+D,z: Final Explosion		3000 power
+
+z: Transformation		1000 power
+D,s: Full Power			1000 power
+
+F,F: Dash Forward		FREE
+B,B: Dash Back			FREE
+
+
+Air:
+a: Attack 1			FREE
+b: Attack 2			FREE

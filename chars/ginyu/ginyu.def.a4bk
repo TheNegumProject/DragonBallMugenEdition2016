@@ -1,0 +1,39 @@
+[info]
+name ="Captain Ginyu"
+displayname ="C.Ginyu"
+versiondate =12,24,2008
+mugenversion =04,01,2001
+author ="Stig87"
+pal.defaults =1,2,3,4,5,6,7,8,9
+
+[files]
+cns =ginyu.cns
+sprite =ginyu.sff
+anim =ginyu.air
+sound =ginyu.snd
+cmd =ginyu.cmd
+stcommon =gcommon.cns
+st =ginyu.cns
+pal1=ginyu.act
+pal2=dark.act
+pal3=green.act
+pal4=blue.act
+pal5=gold.act
+pal6=pink.act
+pal7=pitch.act
+st1=attacks.cns
+st2=specials.cns
+st3=hypers.cns
+st4=bodychange.cns
+
+
+;[arcade]
+;intro.storyboard=
+;ending.storyboard=
+
+
+[arcade]
+intro.storyboard=
+ending.storyboard=
+
+
